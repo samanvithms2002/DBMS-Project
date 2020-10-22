@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gardening Channel System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/basic.css">
+    <style>
+        #line {
+            width: 265px;
+            height: 2px;
+            background-color: #a86060;
+            margin-left: 12px;
+        }
+        .inner {
+            overflow: hidden;
+        }
+
+        .inner img {
+            transition: all 1.5s ease;
+        }
+ 
+        .inner:hover img {
+            transform: scale(1.5);
+        }
+
+        .fa-star {
+            color: #f8c704;
+        }
+    </style>
+
+</head>
+
+<%- include ('../partials/header.ejs'); -%>
+<h1>Miniature Gardens</h1>
+<div id="line"></div>
+<br>
+<div class="container">
+    <br>
+    <h2><%=data[0][0].Category_name%></h2>
+    <div id="line"></div>
+    <br>
+    <div class="row justify-content-center">
+        <%data[0].forEach(function(item,index){%>
+        <div class="col-md-4 col-sm-6">
+                <div class="card shadow h-100" style="width: 20rem;">
+                    <div class="inner"><img src="<%=item.Prod_image%>" class="card-img-top" alt="..."></div>
+                    <div class="card-body">
+                        <h6 class="card-title"><%=item.product_name%></h6>
+                        <h5 class="card-text">₹<s><%=item.price +300%></s> ₹<%=item.price%></h5>
+                        <div class="box">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <b> <%=item.review%> Reviews</b>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+        </div>
+        <%})%>
+    </div>
+    <br>
+    <a href="/Gardening/MiniatureGardens/GardenKits" class="btn btn-primary" style="float: right;">More ...</a>
+    <br>
+    <h2><%=data[1][0].Category_name%></h2>
+    <div id="line"></div>
+    <br>
+    <div class="row justify-content-center">
+        <%data[1].forEach(function(item,index){%>
+        <div class="col-md-4 col-sm-6">
+                <div class="card shadow h-100" style="width: 20rem;">
+                    <div class="inner"><img src="<%=item.Prod_image%>" class="card-img-top" alt="..."></div>
+                    <div class="card-body">
+                        <h6 class="card-title"><%=item.product_name%></h6>
+                        <h5 class="card-text">₹<s><%=item.price +300%></s> ₹<%=item.price%></h5>
+                        <div class="box">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <b> <%=item.review%> Reviews</b>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </form>
+        </div>
+        <%})%>
+    </div>
+    <br>
+    <a href="/Gardening/MiniatureGardens/Terrariums" class="btn btn-primary" style="float: right;">More ...</a>
+    <br>
+    <h2><%=data[2][0].Category_name%></h2>
+    <div id="line"></div>
+    <br>
+    <div class="row justify-content-center">
+        <%data[2].forEach(function(item,index){%>
+        <div class="col-md-4 col-sm-6">
+                <div class="card shadow h-100" style="width: 20rem;">
+                    <div class="inner"><img src="<%=item.Prod_image%>" class="card-img-top" alt="..."></div>
+                    <div class="card-body">
+                        <h6 class="card-title"><%=item.product_name%></h6>
+                        <h5 class="card-text">₹<s><%=item.price +300%></s> ₹<%=item.price%></h5>
+                        <div class="box">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <b> <%=item.review%> Reviews</b>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </form>
+        </div>
+        <%})%>
+    </div>
+    <br>
+    <a href="/Gardening/MiniatureGardens/GreenBeauty" class="btn btn-primary" style="float: right;">More ...</a>
+    <br>
+    <br>
+</div>
+<%- include ('../partials/footer.ejs'); -%>

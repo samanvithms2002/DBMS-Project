@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gardening Channel System</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/flatly/bootstrap.min.css" integrity="sha384-qF/QmIAj5ZaYFAeQcrQ6bfVMAh4zZlrGwTPY7T/M+iTTLJqJBJjwwnsE5Y0mV7QK" crossorigin="anonymous">
+	<link rel="stylesheet" href="/stylesheets/basic.css">
+	
+</head> 
+<body>
+<%- include ('./partials/header.ejs'); -%>
+
+<div class="row mt-5">
+        <div class="col-md-6 m-auto">
+            <div class="card card-body">
+                <h2 class="text-center mb-3">Your Details</h2>
+                <form action="/home/AccountSettings/<%=data[0].customer_id%>" method="POST">
+                    <div class="form-group">
+                        <legend class="form-label" for="Fname">First Name</legend>
+                        <input type="text" name="Fname" id="Fname" class="form-control" placeholder="First Name" value="<%=data[0].Fname%>">
+                    </div>
+                    <div class="form-group">
+                        <legend class="form-label" for="Lname">Last Name</legend>
+                        <input type="text" name="Lname" id="Lname" class="form-control" placeholder="Last Name" value="<%=data[0].Lname%>">
+                    </div>
+                    <div class="form-group">
+                        <legend class="form-label" for="mobile_num">Mobile Number</legend>
+                        <input type="number" name="mobile_num" id="mobile_num" class="form-control" placeholder="Mobile Number" value="<%=data[0].mobile_num%>">
+                    </div>
+                    <div class="form-group">
+                        <legend class="form-label" for="email">Email</legend>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Email" value="<%=data[0].email%>">
+                    </div>
+                    <div class="form-group">
+                        <legend class="form-label" for="street">Street</legend>
+                        <input type="text" name="street" id="street" class="form-control" placeholder="Street" value="<%=data[0].street%>">
+                    </div>
+                    <div class="form-group">
+                        <legend class="form-label" for="city">City</legend>
+                        <input type="text" name="city" id="city" class="form-control" placeholder="City" value="<%=data[0].city%>">
+                    </div>
+                    <div class="form-group">
+                        <legend class="form-label" for="state">State</legend>
+                        <input type="text" name="state" id="state" class="form-control" placeholder="State" value="<%=data[0].state%>">
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Submit</button>
+                </form>
+        </div>
+	</div>
+</div>
+<div class="row mt-5">
+        <div class="col-md-6 m-auto">
+            <div class="card card-body">
+				<h2 class="text-center mb-3">Privacy Settings</h2>	
+				<form action="/home/AccountSettings/Privacy/<%=data[0].customer_id%>" method="POST">
+					<div class="form-group">
+                        <legend class="form-label" for="username">User Name</legend>
+                        <input type="text" name="username" id="username" class="form-control" placeholder="Enter New Username" value="<%=data[0].username%>">
+					</div>
+					<div class="form-group">
+                        <legend class="form-label" for="password">Password</legend>
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Enter New Password" value="<%=data[0].password%>">
+					</div>
+					<div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1">Confirm Changes</label>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-info btn-block">Submit</button>
+				</form>
+			</div>
+		</div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+	integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+	integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+	crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
+	integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
+	crossorigin="anonymous"></script>
+<script>
+	$('.icon').click(function () {
+		$('span').toggleClass("cancel");
+	});
+</script>
+<%- include ('./partials/footer.ejs'); -%>
