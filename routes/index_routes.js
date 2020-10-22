@@ -1151,4 +1151,42 @@ router.post('/Cart_Item/:id', (req, resp) => {
     })
 })
 
+var randomnum = Math.floor((Math.random() * 1000) + 1);
+//saved card details ROUTES
+router.get('/home/SavedCards', (req, resp) => {
+    var userId = req.session.userId;
+    if (userId == null) {
+        resp.redirect("/login");
+        return;
+    }
+    var sql = "SELECT * FROM card_details JOIN customers ON card_details.customer_id=customers.customer_id WHERE card_details.customer_id=?";
+
+    con.query(sql, [customer], function (err, result) {
+        console.log(result)
+        resp.render('SavedCards', {data: result,randomnum:randomnum});
+    });
+})
+router.post('/home/SavedCards/NewCard/:id', (req, resp) => {
+    var userId = req.session.userId;
+    if (userId == null) {
+        resp.redirect("/login");
+        return;
+    }
+    var id = req.params.id;
+    var cardtype = req.body.cardtype;
+    var cardholdername = req.body.cardholdername;
+    var cardnumber = req.body.cardnumber;
+    var expirydate = req.body.expirydate;
+    var cvv = req.body.cvv;
+    
+    var sql_ques = `INSERT INTO card_details(cardtype,cardholdername,cardnumber,expirydate,cvv,customer_id) VALUES (?,?,?,?,?,?)`;
+    con.query(sql_ques, [cardtype, cardholdername, cardnumber, expirydate, cvv, customer], function (err, results) {
+        if (err) {
+            console.log(err);
+        } else {
+            resp.redirect('/home/SavedCards')
+        }
+    })
+    
+})
 module.exports = router;
