@@ -6,7 +6,7 @@ var con = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'proj_v2',
+    database: 'dbms_proj',
     multipleStatements: true
 });
 con.connect(function (err) {
@@ -44,7 +44,7 @@ router.post('/signup', (req, res) => {
 router.get('/login', (req, res) => {
     var message = '';
     var sess = req.session;
-    res.render('index.ejs', {message: message});
+    res.render('login.ejs', {message: message});
 });
 var customer;
 
@@ -67,7 +67,7 @@ router.post('/login', (req, res) => {
         } else {
             console.log(err);
             message = 'Wrong Credentials.';
-            res.render('index.ejs', {message: message});
+            res.render('login.ejs', {message: message});
         }
 
     });
